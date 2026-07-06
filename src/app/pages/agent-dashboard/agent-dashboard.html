@@ -1,0 +1,47 @@
+<div class="dashboard">
+  <header>
+    <h1>ASKIA assurances</h1>
+    <div class="utilisateur-info">
+      <span>{{ utilisateur?.nom }} — Agent</span>
+      <button (click)="seDeconnecter()">Déconnexion</button>
+    </div>
+  </header>
+
+  <p class="erreur" *ngIf="messageErreur">{{ messageErreur }}</p>
+  <p class="succes" *ngIf="messageSucces">{{ messageSucces }}</p>
+
+  <section class="liste">
+    <h2>Sinistres à traiter</h2>
+    <p *ngIf="chargement">Chargement...</p>
+    <p *ngIf="!chargement && sinistres.length === 0">Aucun sinistre à traiter.</p>
+    <div class="carte" *ngFor="let sinistre of sinistres">
+      <div>
+        <strong>{{ sinistre.description }}</strong>
+        <p>Date : {{ sinistre.date }} — Statut : {{ sinistre.statut }}</p>
+      </div>
+      <div class="action-boutons">
+        <button class="btn-en-cours" (click)="traiterSinistre(sinistre.id, 'en_cours')">
+          Traitement
+        </button>
+        <button class="btn-traite" (click)="traiterSinistre(sinistre.id, 'traite')">
+          Accepter
+        </button>
+        <button class="btn-refuse" (click)="traiterSinistre(sinistre.id, 'refuse')">
+          Refuser
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="liste">
+    <h2>Liste des clients</h2>
+    <p *ngIf="clients.length === 0">Aucun client pour le moment.</p>
+    <div class="carte" *ngFor="let client of clients">
+      <div>
+        <strong>{{ client.user?.nom || client.nom }}</strong>
+        <p>{{ client.user?.email || client.email }} — {{ client.telephone }}</p>
+        <p>{{ client.adresse }}</p>
+      </div>
+    </div>
+  </section>
+</div>

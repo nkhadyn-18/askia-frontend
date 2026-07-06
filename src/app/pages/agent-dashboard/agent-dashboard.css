@@ -1,0 +1,118 @@
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  font-family: Arial, sans-serif;
+  color: #1a3c37;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
+  color: white;
+  margin-bottom: 2rem;
+  border-radius: 0 0 12px 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.utilisateur-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.utilisateur-info button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid white;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.utilisateur-info button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.liste {
+  padding: 0 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.liste h2 {
+  color: #1d5c54;
+  border-bottom: 2px solid #a6ce39;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.carte {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.carte strong {
+  color: #1d5c54;
+}
+
+.action-boutons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-boutons button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-en-cours {
+  background-color: #29abe2;
+}
+
+.btn-traite {
+  background-color: #a6ce39;
+  color: #1a3c37;
+}
+
+.btn-refuse {
+  background-color: #c0333b;
+}
+
+.erreur {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 0.9rem 2rem;
+  margin: 0 2rem 1.5rem;
+  border-radius: 8px;
+}
+
+.succes {
+  color: #155724;
+  background: #d4edda;
+  padding: 0.9rem 2rem;
+  margin: 0 2rem 1.5rem;
+  border-radius: 8px;
+}

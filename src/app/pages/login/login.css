@@ -1,0 +1,93 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
+}
+
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px;
+}
+
+h1 {
+  color: #1d5c54;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.sous-titre {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+input {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #29abe2;
+}
+
+button {
+  background-color: #1d5c54;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #164a44;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.erreur {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin: -0.5rem 0 0.75rem;
+}
+
+.lien-inscription {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.lien-inscription a {
+  color: #1d5c54;
+  font-weight: 500;
+  text-decoration: none;
+}

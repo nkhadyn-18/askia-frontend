@@ -1,0 +1,141 @@
+.page-accueil {
+  font-family: Arial, sans-serif;
+  color: #1a3c37;
+}
+
+/* Barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1d5c54;
+}
+
+.logo span {
+  font-weight: normal;
+  color: #29abe2;
+}
+
+.nav-liens {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-liens a {
+  text-decoration: none;
+  color: #1d5c54;
+  font-weight: 500;
+}
+
+.btn-nav {
+  background-color: #1d5c54;
+  color: white !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+}
+
+/* Section hero */
+.hero {
+  background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  opacity: 0.95;
+}
+
+.hero-boutons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-principal {
+  background-color: #a6ce39;
+  color: #1a3c37;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-secondaire {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Section offres */
+.offres {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.offres h2 {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #1d5c54;
+}
+
+.cartes-offres {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.carte-offre {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.icone {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.carte-offre h3 {
+  color: #1d5c54;
+  margin-bottom: 0.5rem;
+}
+
+.carte-offre p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+  background: #1a3c37;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,134 @@
+<div class="dashboard">
+  <header>
+    <h1>ASKIA assurances</h1>
+    <div class="utilisateur-info">
+      <div class="notification-cloche" (click)="afficherNotifications = !afficherNotifications">
+        🔔
+        <span class="notification-badge" *ngIf="notifications.length > 0">{{ notifications.length }}</span>
+      </div>
+      <span>{{ utilisateur?.nom }}</span>
+      <button (click)="seDeconnecter()">Déconnexion</button>
+    </div>
+  </header>
+
+  <div class="notification-panneau" *ngIf="afficherNotifications">
+    <p *ngIf="notifications.length === 0">Aucune nouvelle notification.</p>
+    <p *ngFor="let notif of notifications" class="notification-item">{{ notif }}</p>
+  </div>
+
+  <p class="erreur" *ngIf="messageErreur">{{ messageErreur }}</p>
+  <p class="succes" *ngIf="messageSucces">{{ messageSucces }}</p>
+
+  <section class="actions">
+    <button (click)="afficherFormSouscription = !afficherFormSouscription">
+      + Souscrire un contrat
+    </button>
+    <button (click)="afficherFormSinistre = !afficherFormSinistre">
+      Déclarer un sinistre
+    </button>
+  </section>
+
+  <section class="formulaire" *ngIf="afficherFormSouscription">
+    <h2>Nouvelle souscription</h2>
+    <form (ngSubmit)="souscrire()">
+      <label>Type d'assurance</label>
+      <select name="type" [(ngModel)]="nouveauContrat.type" (change)="calculerDevis()" required>
+        <option value="automobile">Automobile</option>
+        <option value="habitation">Habitation</option>
+        <option value="sante">Santé</option>
+      </select>
+
+      <p class="devis-info" *ngIf="nouveauContrat.montant > 0">
+        💰 Devis calculé : <strong>{{ nouveauContrat.montant }} FCFA/an</strong>
+      </p>
+
+      <label>Date de début</label>
+      <input type="date" name="date_debut" [(ngModel)]="nouveauContrat.date_debut" required />
+
+      <label>Date de fin</label>
+      <input type="date" name="date_fin" [(ngModel)]="nouveauContrat.date_fin" required />
+
+      <button type="submit">Confirmer la souscription</button>
+    </form>
+  </section>
+
+  <section class="formulaire" *ngIf="afficherFormSinistre">
+    <h2>Déclarer un sinistre</h2>
+    <form (ngSubmit)="declarerSinistre()">
+      <label>Contrat concerné</label>
+      <select name="contrat_id" [(ngModel)]="nouveauSinistre.contrat_id" required>
+        <option [value]="0" disabled>Choisir un contrat</option>
+        <option *ngFor="let contrat of contrats" [value]="contrat.id">
+          {{ contrat.type }} (contrat n°{{ contrat.id }})
+        </option>
+      </select>
+
+      <label>Description</label>
+      <textarea name="description" [(ngModel)]="nouveauSinistre.description" required></textarea>
+
+      <label>Date du sinistre</label>
+      <input type="date" name="date" [(ngModel)]="nouveauSinistre.date" required />
+
+      <label>Photo ou document justificatif (facultatif)</label>
+      <input type="file" (change)="onFichierSelectionne($event)" accept=".jpg,.jpeg,.png,.pdf" />
+
+      <button type="submit">Envoyer la déclaration</button>
+    </form>
+  </section>
+
+  <section class="liste">
+    <h2>Mes contrats</h2>
+    <p *ngIf="chargement">Chargement...</p>
+    <p *ngIf="!chargement && contrats.length === 0">Aucun contrat pour le moment.</p>
+    <div class="carte" *ngFor="let contrat of contrats">
+      <div>
+        <strong>{{ contrat.type }}</strong> — contrat n°{{ contrat.id }}
+        <p>{{ contrat.montant }} FCFA — du {{ contrat.date_debut }} au {{ contrat.date_fin }}</p>
+      </div>
+      <div class="paiement-boutons">
+        <button (click)="payer(contrat.id, 'wave')">Payer via Wave</button>
+        <button (click)="payer(contrat.id, 'orange_money')">Payer via Orange Money</button>
+        <button class="btn-renouveler" (click)="renouveler(contrat.id)">Renouveler</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="liste">
+    <h2>Mes sinistres</h2>
+    <p *ngIf="sinistres.length === 0">Aucun sinistre déclaré.</p>
+    <div class="carte" *ngFor="let sinistre of sinistres">
+      <div>
+        <strong>{{ sinistre.description }}</strong>
+        <p>Date : {{ sinistre.date }}</p>
+      </div>
+      <span
+        class="badge"
+        [class.badge-attente]="sinistre.statut === 'en_attente'"
+        [class.badge-cours]="sinistre.statut === 'en_cours'"
+        [class.badge-confirme]="sinistre.statut === 'traite'"
+        [class.badge-echoue]="sinistre.statut === 'refuse'"
+      >
+        {{ sinistre.statut === 'en_attente' ? 'En attente' : sinistre.statut === 'en_cours' ? 'En cours' : sinistre.statut === 'traite' ? 'Traité' : 'Refusé' }}
+      </span>
+    </div>
+  </section>
+
+  <section class="liste">
+    <h2>Mes paiements</h2>
+    <p *ngIf="paiements.length === 0">Aucun paiement effectué.</p>
+    <div class="carte" *ngFor="let paiement of paiements">
+      <div>
+        <strong>{{ paiement.montant }} FCFA</strong> — {{ paiement.moyen === 'wave' ? 'Wave' : 'Orange Money' }}
+        <p>Date : {{ paiement.date }}</p>
+      </div>
+      <span
+        class="badge"
+        [class.badge-attente]="paiement.statut === 'en_attente'"
+        [class.badge-confirme]="paiement.statut === 'confirme'"
+        [class.badge-echoue]="paiement.statut === 'echoue'"
+      >
+        {{ paiement.statut === 'en_attente' ? 'En attente' : paiement.statut === 'confirme' ? 'Confirmé' : 'Échoué' }}
+      </span>
+    </div>
+  </section>
+</div>

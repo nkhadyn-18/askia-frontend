@@ -1,0 +1,89 @@
+<div class="dashboard">
+  <header>
+    <h1>ASKIA assurances</h1>
+    <div class="utilisateur-info">
+      <span>{{ utilisateur?.nom }} — Administrateur</span>
+      <button (click)="seDeconnecter()">Déconnexion</button>
+    </div>
+  </header>
+
+  <p class="erreur" *ngIf="messageErreur">{{ messageErreur }}</p>
+  <p class="succes" *ngIf="messageSucces">{{ messageSucces }}</p>
+
+  <section class="stats">
+    <div class="stat-carte">
+      <p class="stat-label">Clients</p>
+      <p class="stat-valeur">{{ statistiques.total_clients }}</p>
+    </div>
+    <div class="stat-carte">
+      <p class="stat-label">Agents</p>
+      <p class="stat-valeur">{{ statistiques.total_agents }}</p>
+    </div>
+    <div class="stat-carte">
+      <p class="stat-label">Contrats</p>
+      <p class="stat-valeur">{{ statistiques.total_contrats }}</p>
+    </div>
+  </section>
+
+  <section class="liste">
+    <h2>Contrats par type d'assurance</h2>
+    <div class="carte" *ngFor="let item of statistiques.contrats_par_type">
+      <span>{{ item.type }}</span>
+      <strong>{{ item.total }}</strong>
+    </div>
+  </section>
+
+  <section class="actions">
+    <button (click)="afficherFormAgent = !afficherFormAgent">
+      + Créer un agent
+    </button>
+  </section>
+
+  <section class="formulaire" *ngIf="afficherFormAgent">
+    <h2>Nouveau compte agent</h2>
+    <form (ngSubmit)="creerAgent()">
+      <label>Nom complet</label>
+      <input type="text" name="nom" [(ngModel)]="nouvelAgent.nom" required />
+
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="nouvelAgent.email" required />
+
+      <label>Mot de passe</label>
+      <input type="password" name="mot_de_passe" [(ngModel)]="nouvelAgent.mot_de_passe" required />
+
+      <label>Matricule</label>
+      <input type="text" name="matricule" [(ngModel)]="nouvelAgent.matricule" required />
+
+      <label>Département</label>
+      <input type="text" name="departement" [(ngModel)]="nouvelAgent.departement" required />
+
+      <button type="submit">Créer l'agent</button>
+    </form>
+  </section>
+
+  <section class="liste">
+    <h2>Tous les utilisateurs</h2>
+    <p *ngIf="chargement">Chargement...</p>
+    <div class="carte" *ngFor="let u of utilisateurs">
+      <div *ngIf="utilisateurEnEdition?.id !== u.id" class="ligne-utilisateur">
+        <div>
+          <strong>{{ u.nom }}</strong>
+          <p>{{ u.email }} — {{ u.role }}</p>
+        </div>
+        <div class="action-boutons" *ngIf="u.role !== 'administrateur'">
+          <button class="btn-modifier" (click)="commencerEdition(u)">Modifier</button>
+          <button class="btn-supprimer" (click)="supprimerUtilisateur(u)">Supprimer</button>
+        </div>
+      </div>
+
+      <div *ngIf="utilisateurEnEdition?.id === u.id" class="edition-inline">
+        <input type="text" [(ngModel)]="edition.nom" placeholder="Nom" />
+        <input type="email" [(ngModel)]="edition.email" placeholder="Email" />
+        <div class="action-boutons">
+          <button class="btn-modifier" (click)="enregistrerModification()">Enregistrer</button>
+          <button class="btn-annuler" (click)="annulerEdition()">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

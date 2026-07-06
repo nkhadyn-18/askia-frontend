@@ -1,0 +1,229 @@
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  font-family: Arial, sans-serif;
+  color: #1a3c37;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
+  color: white;
+  margin-bottom: 2rem;
+  border-radius: 0 0 12px 12px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.utilisateur-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.utilisateur-info button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid white;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.utilisateur-info button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.stat-carte {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1.3rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.stat-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.stat-valeur {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1d5c54;
+  margin: 0.3rem 0 0;
+}
+
+.liste {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.liste h2 {
+  color: #1d5c54;
+  border-bottom: 2px solid #a6ce39;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.carte {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1.1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.carte strong {
+  color: #1d5c54;
+}
+
+.actions {
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.actions button {
+  background-color: #1d5c54;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.actions button:hover {
+  background-color: #164a44;
+}
+
+.formulaire {
+  background: #f7faf9;
+  border: 1px solid #e0e8e6;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 0 2rem 2rem;
+}
+
+.formulaire h2 {
+  color: #1d5c54;
+  margin-top: 0;
+}
+
+.formulaire form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulaire label {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.formulaire input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.formulaire button {
+  margin-top: 1.2rem;
+  background-color: #a6ce39;
+  color: #1a3c37;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.erreur {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 0.9rem 2rem;
+  margin: 0 2rem 1.5rem;
+  border-radius: 8px;
+}
+
+.succes {
+  color: #155724;
+  background: #d4edda;
+  padding: 0.9rem 2rem;
+  margin: 0 2rem 1.5rem;
+  border-radius: 8px;
+}
+
+.ligne-utilisateur {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.edition-inline {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.edition-inline input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.action-boutons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-boutons button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-modifier {
+  background-color: #29abe2;
+}
+
+.btn-supprimer {
+  background-color: #c0333b;
+}
+
+.btn-annuler {
+  background-color: #999;
+}
