@@ -51,16 +51,13 @@ header h1 {
 }
 
 .stat-carte {
-  background: white;
-  border: 1px solid #e5e5e5;
   border-radius: 10px;
   padding: 1.3rem;
   text-align: center;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .stat-label {
-  color: #666;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -68,8 +65,34 @@ header h1 {
 .stat-valeur {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #1d5c54;
   margin: 0.3rem 0 0;
+}
+
+.stat-clients {
+  background: linear-gradient(135deg, #29abe2 0%, #5fc9bc 100%);
+}
+
+.stat-clients .stat-label,
+.stat-clients .stat-valeur {
+  color: white;
+}
+
+.stat-agents {
+  background: linear-gradient(135deg, #a6ce39 0%, #5fc9bc 100%);
+}
+
+.stat-agents .stat-label,
+.stat-agents .stat-valeur {
+  color: #1a3c37;
+}
+
+.stat-contrats {
+  background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
+}
+
+.stat-contrats .stat-label,
+.stat-contrats .stat-valeur {
+  color: white;
 }
 
 .liste {
