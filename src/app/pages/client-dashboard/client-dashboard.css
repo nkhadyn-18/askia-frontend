@@ -193,6 +193,7 @@ header h1 {
   align-items: center;
   background: white;
   border: 1px solid #e5e5e5;
+  border-left: 5px solid #1d5c54;
   border-radius: 10px;
   padding: 1.2rem;
   margin-bottom: 0.75rem;
@@ -203,6 +204,22 @@ header h1 {
 
 .carte strong {
   color: #1d5c54;
+}
+
+.carte:has(.badge-attente) {
+  border-left-color: #f0ad4e;
+}
+
+.carte:has(.badge-cours) {
+  border-left-color: #29abe2;
+}
+
+.carte:has(.badge-confirme) {
+  border-left-color: #a6ce39;
+}
+
+.carte:has(.badge-echoue) {
+  border-left-color: #c0333b;
 }
 
 .paiement-boutons {
