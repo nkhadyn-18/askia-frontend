@@ -3,7 +3,6 @@
   color: #1a3c37;
 }
 
-/* Barre de navigation */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,7 +42,6 @@
   border-radius: 6px;
 }
 
-/* Section hero */
 .hero {
   background: linear-gradient(135deg, #1d5c54 0%, #29abe2 100%);
   color: white;
@@ -88,7 +86,6 @@
   font-weight: bold;
 }
 
-/* Section offres */
 .offres {
   padding: 4rem 2rem;
   text-align: center;
@@ -108,30 +105,46 @@
 }
 
 .carte-offre {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 2rem;
-  width: 260px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  padding: 2.2rem 2rem;
+  width: 270px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.carte-offre:hover {
+  transform: translateY(-6px);
 }
 
 .icone {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
 .carte-offre h3 {
-  color: #1d5c54;
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .carte-offre p {
-  color: #555;
   font-size: 0.95rem;
 }
 
-/* Footer */
+.carte-auto {
+  background: linear-gradient(160deg, #29abe2 0%, #1d5c54 100%);
+  color: white;
+}
+
+.carte-habitation {
+  background: linear-gradient(160deg, #a6ce39 0%, #5fc9bc 100%);
+  color: #1a3c37;
+}
+
+.carte-sante {
+  background: linear-gradient(160deg, #c0333b 0%, #f0ad4e 100%);
+  color: white;
+}
+
 .footer {
   background: #1a3c37;
   color: white;
