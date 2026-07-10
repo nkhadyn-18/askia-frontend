@@ -2,22 +2,28 @@
   <header>
     <h1>ASKIA assurances</h1>
     <div class="utilisateur-info">
-      <div class="notification-cloche" (click)="afficherNotifications = !afficherNotifications">
-        🔔
-        <span class="notification-badge" *ngIf="notifications.length > 0">{{ notifications.length }}</span>
-      </div>
       <span>{{ utilisateur?.nom }}</span>
       <button (click)="seDeconnecter()">Déconnexion</button>
     </div>
   </header>
 
-  <div class="notification-panneau" *ngIf="afficherNotifications">
-    <p *ngIf="notifications.length === 0">Aucune nouvelle notification.</p>
-    <p *ngFor="let notif of notifications" class="notification-item">{{ notif }}</p>
-  </div>
-
   <p class="erreur" *ngIf="messageErreur">{{ messageErreur }}</p>
   <p class="succes" *ngIf="messageSucces">{{ messageSucces }}</p>
+
+  <section class="stats">
+    <div class="stat-carte stat-contrats">
+      <p class="stat-label">Contrats</p>
+      <p class="stat-valeur">{{ contrats.length }}</p>
+    </div>
+    <div class="stat-carte stat-sinistres">
+      <p class="stat-label">Sinistres</p>
+      <p class="stat-valeur">{{ sinistres.length }}</p>
+    </div>
+    <div class="stat-carte stat-paiements">
+      <p class="stat-label">Paiements</p>
+      <p class="stat-valeur">{{ paiements.length }}</p>
+    </div>
+  </section>
 
   <section class="actions">
     <button (click)="afficherFormSouscription = !afficherFormSouscription">
