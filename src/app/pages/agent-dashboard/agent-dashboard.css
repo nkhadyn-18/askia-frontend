@@ -42,6 +42,50 @@ header h1 {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.stat-carte {
+  border-radius: 10px;
+  padding: 1.3rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.stat-valeur {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0.3rem 0 0;
+}
+
+.stat-clients {
+  background: linear-gradient(135deg, #29abe2 0%, #5fc9bc 100%);
+}
+
+.stat-clients .stat-label,
+.stat-clients .stat-valeur {
+  color: white;
+}
+
+.stat-sinistres {
+  background: linear-gradient(135deg, #f0ad4e 0%, #c0333b 100%);
+}
+
+.stat-sinistres .stat-label,
+.stat-sinistres .stat-valeur {
+  color: white;
+}
+
 .liste {
   padding: 0 2rem;
   margin-bottom: 2.5rem;
@@ -75,7 +119,22 @@ header h1 {
 
 .action-boutons {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
+  align-items: stretch;
+}
+
+.btn-pleine-largeur {
+  width: 100%;
+}
+
+.sous-boutons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sous-boutons button {
+  flex: 1;
 }
 
 .action-boutons button {

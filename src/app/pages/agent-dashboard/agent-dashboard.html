@@ -10,6 +10,17 @@
   <p class="erreur" *ngIf="messageErreur">{{ messageErreur }}</p>
   <p class="succes" *ngIf="messageSucces">{{ messageSucces }}</p>
 
+  <section class="stats">
+    <div class="stat-carte stat-clients">
+      <p class="stat-label">Clients</p>
+      <p class="stat-valeur">{{ clients.length }}</p>
+    </div>
+    <div class="stat-carte stat-sinistres">
+      <p class="stat-label">Sinistres à traiter</p>
+      <p class="stat-valeur">{{ sinistres.length }}</p>
+    </div>
+  </section>
+
   <section class="liste">
     <h2>Sinistres à traiter</h2>
     <p *ngIf="chargement">Chargement...</p>
@@ -20,15 +31,17 @@
         <p>Date : {{ sinistre.date }} — Statut : {{ sinistre.statut }}</p>
       </div>
       <div class="action-boutons">
-        <button class="btn-en-cours" (click)="traiterSinistre(sinistre.id, 'en_cours')">
+        <button class="btn-en-cours btn-pleine-largeur" (click)="traiterSinistre(sinistre.id, 'en_cours')">
           Traitement
         </button>
-        <button class="btn-traite" (click)="traiterSinistre(sinistre.id, 'traite')">
-          Accepter
-        </button>
-        <button class="btn-refuse" (click)="traiterSinistre(sinistre.id, 'refuse')">
-          Refuser
-        </button>
+        <div class="sous-boutons">
+          <button class="btn-traite" (click)="traiterSinistre(sinistre.id, 'traite')">
+            Accepter
+          </button>
+          <button class="btn-refuse" (click)="traiterSinistre(sinistre.id, 'refuse')">
+            Refuser
+          </button>
+        </div>
       </div>
     </div>
   </section>
